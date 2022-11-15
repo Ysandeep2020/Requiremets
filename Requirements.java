@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 public class Requirements {
 
 	public static void main(String[] args) {
+		addspaceAndSkip();
 		addHyphen();
 		countNumberWithDigit();
 		abcxyz();
@@ -24,8 +25,32 @@ public class Requirements {
 		System.out.println(findMissingNumber(arr));
 	}
 
+	private static void addspaceAndSkip() {
+		String input = "123456789012345";
+		// output=123 567 901 345
+		char[] array = input.toCharArray();
+		// with the help of while loop
+		int i = 0;
+		int count = 0;
+		String newString = "";
+		String add = " ";
+		while (input.length() != i) {
+			count++;
+			newString += array[i];
+			if (count == 3 && i != input.length() - 1) {
+				newString += add;
+				count = 0;
+				i++;
+			}
+			i++;
+		}
+		System.out.println(newString);
+
+	}
+
 	private static void addHyphen() {
 		String input = "123456789012345";
+		// output = 123-456-789-012-345
 		char[] array = input.toCharArray();
 		// with the help of while loop
 		int i = 0;
@@ -35,7 +60,6 @@ public class Requirements {
 		while (input.length() != i) {
 			count++;
 			newString += array[i];
-
 			if (count == 3 && i != input.length() - 1) {
 				newString += add;
 				count = 0;
